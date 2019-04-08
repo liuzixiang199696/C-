@@ -1,0 +1,306 @@
+1、用 if 判断输入的是否是空格键的方法：（Console.ReadKey()的用法）
+
+ConsoleKeyInfo readkey = Console.ReadKey();
+Console.WriteLine(readkey.Key.ToString());
+if (readkey.ToString().ToLower() == "spacebar")
+         Console.WriteLine("空格");
+
+2、用 if……else 判断是否为闰年（闰年为能被4整除的年份，*注：若该年份能被100整除，还要被400整除才是闰年）
+复制代码
+
+Console.WriteLine("请输入年份:");
+int year = int.Parse(Console.ReadLine());
+if (year % 4 == 0)
+{
+    if (year % 100 == 0)
+    {
+        if (year % 400 == 0)
+        {
+            Console.WriteLine("yes");
+        }
+        else
+            Console.WriteLine("no");
+    }
+    else
+        Console.WriteLine("yes");
+}
+else
+    Console.WriteLine("no");
+
+复制代码
+
+3、if……else if……else 输入一个1~100之内的数，判断是否与7有关
+复制代码
+
+Console.WriteLine("请输入一个1~100内的数");
+int shu = int.Parse(Console.ReadLine());
+if (shu >= 1 && shu <= 100)
+{
+    if (shu%10==7)
+        Console.WriteLine("yes");
+    else if(shu%7==0)
+            Console.WriteLine("yes");
+    else if(shu/10==7)
+            Console.WriteLine("yes");
+    else
+            Console.WriteLine("no");
+}
+else
+{
+    Console.WriteLine("输入错误");
+}
+
+复制代码
+
+ 4、输入a,b,c，求一元二次方程的解
+复制代码
+
+            Console.WriteLine("请输入a,b,c");
+            int a  = int.Parse(Console.ReadLine());
+            int b  = int.Parse(Console.ReadLine());
+            int c  = int.Parse(Console.ReadLine());
+            if (a == 0 && b != 0)
+            {
+                double x =(double) (-c) / b;
+                Console.WriteLine("有一个实根{0}",x);
+            }
+            else if (a == 0 && b == 0)
+            {
+                Console.WriteLine("a，b均为零，无实根");
+            }
+            else
+            {
+                double de =sqr( b * b - 4 * a * c);
+                if (de == 0)
+                {
+                    double x = (double)(-b) / (2 * a);
+                    Console.WriteLine("有两个相等的实根，x1=x2={0}", x);
+                }
+                else if (de < 0)
+                {
+                    Console.WriteLine("此方程无解");
+                }
+                else
+                {
+                    double x1 = (double)((-b) + Math.Sqrt(de)) / (2 * a);
+                    double x2 = (double)((-b) - Math.Sqrt(de)) / (2 * a);
+                    Console.WriteLine("有两个实根,x1={0},x2={1}",x1,x2);
+                }
+            }  
+
+一个简单的求数组最大值的方法
+
+//可变参数
+
+int max=GetMaxNumbers(101,30)
+复制代码
+
+static int GetMaxNumbers(params int[] pms)
+{
+  int max=pms[0];
+  for(int i=1;i<pms.Length;i++)
+  {
+    if(pms[i]>max)
+    {
+      max=pms[i];
+    }
+  }
+  return max;
+}
+
+复制代码
+
+一个简单的方法计算1-100的和
+复制代码
+
+static int GetSum()
+{
+  int result=0;
+  for(int i=1;i<=100; i++)
+  {
+    result=result+i;
+  }
+  return result;
+}
+
+复制代码
+
+计算1-100之间所有奇数的和
+复制代码
+
+private static int GetOddSum()
+{
+  int sum=0;
+  for(int i=1;i<=100;i++)
+  {
+    if(i%2!=0)
+    {
+      sum +=i;
+    }
+  }
+  return sum;
+}
+
+复制代码
+
+判断一个给定的整数是否为“质数”
+复制代码
+
+private static bool IsZhiShu(int number)
+{
+  for(int i=2;i<number;i++)
+  {
+    if(number%i==0)
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
+复制代码
+
+计算1-100之间所有质数的和(运用到了上面的判断质数的函数)
+复制代码
+
+private static int GetZhiShuSum()
+{
+  int sum=0;
+  for(int i=2;i<=100;i++)
+  {
+    if(IsZhiShu(i))
+    {
+      sum+=i;
+    }
+  }
+  return sum;
+}
+
+复制代码
+
+假设有一个字符串数组，用方法输出最长的字符串
+复制代码
+
+private static string GetMaxName(string[] names)
+{
+  string maxName=names[0];
+  for(int i=1;i<names.Length;i++)
+  {
+    if(names[i].Length>maxName.Length)
+    {
+      maxName=names[i];
+    }
+  }
+  return maxName;
+}
+
+复制代码
+
+字符串数组的几种声明方式
+
+int[] arr=new int[10];
+
+int[] arr1=new int[]{10,20,30};
+
+int[] arr2=new int[3]{10,20,30};
+
+int[] arr3={11,22,33};
+
+计算一个整型数组的平均值
+
+ 
+复制代码
+
+int[] arrInt={1,3,5,7,90,20,51,53};
+double avg=GetAvg(arrInt);
+private static double GetAvg()
+{
+  double sum=0;
+  for(int i=0; i<arrInt.Length;i++)
+  {
+    sum+=arrInt[i];
+  }
+  return Math.Round(sum/(double)arrInt.Length,2);//结果保留两位小数（四舍五入）
+}
+
+复制代码
+
+ 
+
+通过冒泡排序法对整数数组实现升序排序
+复制代码
+
+int[] arrInt={1,3,5,7,90,2,4,6,8,10};
+for(int i=0;i<arrInt.Length-1;i++)
+{
+  for(int j=arrInt.Length-1;j>i;j--)
+  {
+    if(arrInt[j]<arrInt[j-1])
+    {
+      //从后往前两两对比，小的放前面
+      int tmp=arrInt[j];
+      arrInt[j]=arrInt[j-1];
+      arrInt[j-1]=tmp;
+    }
+  }
+}
+for(int m=0;n<arrInt.Length;n++)
+{
+  Console.WriteLine(arrInt[n]);
+}
+Console.ReadKey();
+
+复制代码
+
+统计一个字符串中出现某个指定字符的次数
+复制代码
+
+//IndexOf()方法报告指定字符串在此实例中的第一个匹配项的索引(如果查找的字符没有项匹配的值，则返回-1)
+//LastIndexOf()方法报告指定只服从在此实例中的最后一个匹配项的索引
+string msg="刚好是反对开挂的身份古典风格的风格第三个的规划的共和党和规范不放过那边的功能地方";
+//0表示该索引从第几个字符位置开始
+//msg.IndexOf("的",0)
+//纪录"的"出现的次数
+int count=0;
+int index=0;
+while((index=msg.IndexOf("的",index))!=-1)//while的条件就是查找时的返回的值不是-1
+{
+  count++;
+  Console.WriteLine("第{0}次出现【的】的索引位置为：{1}",count,index);
+  index=index+"的".Length;
+}
+Console.WriteLine("【的】总共出现了{0}次",count);
+Console.ReadKey();
+//统计每个字符出现的次数
+Dictionary<char,int> dict=new Dictionary<char,int>();
+for(int i=0;i<msg.Length;i++)
+{
+  if(!dict.ContainsKey(msg[i]))
+  {
+    dict.Add(msg[i],1);
+  }
+  else
+  {
+    dict[msg[i]]++;
+  }
+}
+foreach(KeyValuePair<char,int> item in dict)
+{
+  Console.WriteLine("字符{0}出现了{1}次",item.Key,item.Value);
+}
+
+复制代码
+
+将字符串的两端空格去掉，并且将其中的所有其他空格都替换成一个空格
+
+ 
+复制代码
+
+string msg="    hello    world ,  你   好时节    ！  ";
+//Trim()方法去掉两端空格
+//用Split方法分割，StringSplitOptions.RemoveEmptyEntries去除空格
+msg=msg.Trim();
+string[] words=msg.Split(new char[] {' '},StringSplitOptions.RemoveEmptyEntries);
+msg=string.Join(" ",words);
+Console.WriteLine("===="+msg+"====");
+Console.ReadKey();          
