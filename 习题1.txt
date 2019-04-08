@@ -1,0 +1,281 @@
+if练习：
+
+(1):从键盘输入考试分数
+
+当score>=90;输出考试优秀；
+
+score>=80,输出考试良好；
+
+score>=60输出考试及格；
+
+score<60,输出下次继续努力。
+
+
+Console.WriteLine("请输入你的成绩");
+
+double a=Convert.ToDouble(Console.ReadLine());
+
+if(a>=90&&a<=100){
+
+       Console.WriteLine("考试优秀分数为{0}",a);
+
+}else if(a>=80&&a<90){
+
+ Console.WriteLine("考试良好分数为{0}",a);
+
+}else if(a>=60&&a<80){
+
+ Console.WriteLine("考试及格分数为{0}",a);
+
+}defult:{
+
+ Console.WriteLine(“考试不及格下次继续努力”);
+
+}
+
+(2)如果今天是周六或周日，打算外出。外出的时候如果气温在30度以上，去游泳；否则就去爬山
+
+如果今天不是周六或周日，就要工作。如果天气好，去客户单位谈业务；否则，在公司上网查资料
+
+                      Console.WriteLine ("请输入今天是星期几");
+int a = Convert.ToInt32 (Console.ReadLine ());
+if (a == 6 || a == 7) {
+Console.WriteLine ("请输入今天的温度:");
+int b = Convert.ToInt32 (Console.ReadLine ());
+Console.WriteLine ("你今天需要外出");
+if (b > 30) {
+Console.WriteLine ("去游泳");
+} else {
+Console.WriteLine ("爬山");
+}
+   }else if(a>=1&&a<=5){
+Console.WriteLine ("今天你需要工作:");
+Console.WriteLine ("请输入今天天气好么");
+string s=Console.ReadLine ();
+if (s=="好"){
+Console.WriteLine ("你需要去客户单位谈业务");
+}else{
+Console.WriteLine ("你需要在公司上网查资料");
+}
+
+}
+
+(3)定义三个float类型的变量，分别从键盘输入值给他们，使用if else 找出他们中的中间数，输出 （使用逻辑运算符）
+
+Console.WriteLine ("请输入第一个数:");
+   double  a = Convert .ToDouble(Console.ReadLine ());
+Console.WriteLine ("请输入第二个数:");
+double  b = Convert .ToDouble(Console.ReadLine ());
+Console.WriteLine ("请输入第三个数:");
+double  c = Convert .ToDouble(Console.ReadLine ());
+if (a > b && a < c || a > c && a < b) {
+Console.WriteLine ("三个数中的中间数是{0}", a);
+} else if (b > c && b < a || b > a && b < c) {
+Console.WriteLine ("三个数中的中间数是{0}", b);
+} else if (a == b && a > c) {
+Console.WriteLine ("三个数中的中间数是{0}", c);
+} else if (a == b && a < c) {
+Console.WriteLine ("三个数中的中间数是{0},{1}", a, b);
+} else if (a == b&&b== c) {
+Console.WriteLine ("三个数中的中间数是{0},{1},{2}", a, b, c);
+} else if (a == c && a > b) {
+Console.WriteLine ("三个数中的中间数是{0}", b);
+
+} else if (a == c && a < b) {
+Console.WriteLine ("三个数中的中间数是{0},{1}", a, c);
+} else if (b == c && b > a) {
+Console.WriteLine ("三个数中的中间数是{0}", a);
+} else if (b == c && b < a) {
+Console.WriteLine ("三个数中的中间数是{0},{1}", b, c);
+} else {
+Console.WriteLine ("三个数中的中间数是{0}", c);
+
+}
+
+(4):定义三个float类型的变量，分别从键盘输入值给他们，使用if else 找出他们中的最小数，输出.
+
+Console.WriteLine ("请输入第一个数:");
+   double  a = Convert .ToDouble(Console.ReadLine ());
+Console.WriteLine ("请输入第二个数:");
+double  b = Convert .ToDouble(Console.ReadLine ());
+Console.WriteLine ("请输入第三个数:");
+double  c = Convert .ToDouble(Console.ReadLine ());
+if (a < b && a < c) {
+Console.WriteLine ("三个数中的最小值是{0}", a);
+} else if (b < a && b < c) {
+Console.WriteLine ("三个数中的最小值是{0}", b);
+} else if (a == b && a > c) {
+Console.WriteLine ("三个数中的最小值是{0}", c);
+} else if (a == b && a < c) {
+Console.WriteLine ("三个数中的最小值是{0},{1}", a, b);
+} else if (a == b && b == c) {
+Console.WriteLine ("三个数中的最小值是{0},{1},{2}", a, b, c);
+} else if (b == c && c > a) {
+Console.WriteLine ("三个数中的最小值是{0}", a);
+} else if (b == c && c < a) {
+Console.WriteLine ("三个数中的最小值是{0},{1}", b, c);
+} else if (a == c && a > b) {
+Console.WriteLine ("三个数中的最小值是{0}", b);
+} else if (a == c && a < b) {
+Console.WriteLine ("三个数中的最小值是{0},{1}", a, c);
+}
+
+(5)求1-100内能被3整除，不能被5整除的数字，要求每行打印5个数字
+
+int a=1,n=5;
+for (a = 1; a <= 100; a++) {
+if (a % 3 == 0 && a % 5 != 0) {
+Console.Write (a);
+n++;
+if (n%5==0) {
+Console.WriteLine ();
+}
+}
+
+}
+
+(6)计算1！+2！+3！+。。。+10！的和
+
+int s=0;
+int jc=1;
+int i = 1;
+while (i <= 10) {
+jc = jc * i;
+i++;
+s = s + jc;
+}
+Console.WriteLine ("1到10的阶乘之和为{0}",s);
+
+do  while 方法
+int s=0;
+int jc=1;
+int i = 1;
+do {
+jc = jc * i;
+i++;
+s = s + jc;
+} while (i <= 10);
+
+Console.WriteLine ("1到10的阶乘之和为{0}",s);	
+
+(7)老师每天检查张三的学习是否合格，如果不合格，则继续学习，否则，提示“恭喜合格”。学习任务为：上午阅读教材，学习理论部分，下午上机编程，掌握代码部分。(是否合格，从键盘输入，y表示合格)
+
+string Y;
+Console.WriteLine("张三的学习是否合格");
+do {
+Console.WriteLine ("请输入Y/N");
+Y = Console.ReadLine ();
+if(Y=="y"){
+break ;
+}else{
+Console.WriteLine ("继续学习:学习任务为:上午阅读教材,学习理解部分，下午上机编程");
+}
+} while(Y == "n");
+Console.WriteLine  ("恭喜合格");
+
+(8).计算10！(10的阶乘)的结果
+
+int a=1;
+int jiecheng= 1;
+while (a <= 10) {
+jiecheng = a * jiecheng;
+a++;
+}
+
+Console.WriteLine ("阶乘结果为:{0}" ,jiecheng);
+
+
+(9):打印出所有的"水仙花数"
+"水仙花数"是指一个三位数，其各位数字立方和等于该数本身。例如：153
+
+int a=100;
+while (100<=a&&a<1000){
+int q = (int)(a / 100 % 10);
+int c= (int)(a/10%10);
+int d = (int)(a % 10);
+if(q*q*q+c*c*c+d *d *d==a){
+Console.WriteLine ("这是一个水仙花数为:{0}" ,a );
+}
+a++;
+
+}
+
+
+(10):打印101-200之间的素数
+
+int i=101;
+int j;
+bool b;
+while (101 <= i && i <= 200) {
+b = true;
+j=2;
+while (j <= i - 1) {
+if (i % j == 0) {
+b = false;
+break;
+}
+j++;
+}
+if (b==true) {
+Console.WriteLine (i);
+}
+i++;
+
+}
+
+(11)用户登录系统时需要输入用户名和密码，系统对用户输入的用户名和密码进行验证。验证次数最多3次，超过三次则程序结束。假设正确的用户名和密码为1和123456
+
+const string UserName = "1";
+const string PassWord="123456";
+string userName,passWord;
+int i = 1;
+while (i <= 3) {
+Console.WriteLine ("请输入用户名");
+userName=Console.ReadLine ();
+Console.WriteLine ("请输入密码");
+passWord =Console.ReadLine ();
+if (UserName == userName && passWord == PassWord)
+break;
+else 
+Console.WriteLine ("账户或者密码错误请重新输入");
+i++;
+
+
+}
+if (i <= 3) {
+Console.WriteLine ("正在登陆");
+} else
+
+Console.WriteLine ("不能登陆");
+
+(12)求出所有的5位数的回文数，显示在屏幕上。即12321是回文数，个位与万位相同，十位与千位相同。
+
+for (int i=10000;i<=99999;i++){
+int w=(int)i/10000%10;
+int q=(int)i/1000%10;
+int s=(int)i/10%10;
+int g=(int)i%10;
+if(w==g&&q==s){
+Console.WriteLine ("这个数{0}是个回文数:",i);
+   }
+
+}
+
+(13)打印9*9乘法表
+
+for(int i=1;i<=9;i++){
+for(int j=1;j<=i;j++){
+int b=i*j;
+Console.Write("{0}*{1}={2}\t",i,j,b);
+}
+Console.WriteLine ("");
+}
+
+(14)打印5行5列的矩形
+
+for (int i = 0; i < 5; i++) {
+for (int j = 0; j < i; j++) {
+Console.Write ("*");
+}
+Console.WriteLine ("*");
+}
