@@ -1,0 +1,58 @@
+--新建表TMessage(Id, FromUser, ToUser, UrgentLevel, Kind, HasRead, IsDelete, Content)，使用该表：
+
+--证明“唯一约束依赖于唯一索引”
+--证明“主键上可以是非聚集索引”
+--证明“SQL Server不会为外键自动添加索引”
+
+--CREATE TABLE TMessage(
+--Id   INT  not null, 
+--FromUser int not null, 
+--ToUser int not null, 
+--UrgentLevel int not null, 
+--Kind  int not null, 
+--HasRead  int not null, 
+--IsDelete int not null, 
+--Content NVARCHAR(MAX)
+--)
+
+
+--为ID列添加唯一约束，
+--ALTER TABLE TMessage
+--ADD CONSTRAINT UK_id UNIQUE(ID)
+
+--证明“唯一约束依赖于唯一索引”
+--SELECT [name], [type],  is_unique, is_primary_key, is_unique_constraint
+--FROM sys.indexes 
+--WHERE[name]='UK_id'
+
+--证明“主键上可以是非聚集索引”
+--创建唯一聚集索引
+--create unique clustered       
+--index UQ_FU        
+--on TMessage(FromUser)     
+
+--添加主键
+--ALTER TABLE TMessage
+--ADD  PRIMARY KEY ([Id])
+
+--添加非唯一，非聚集索引，
+--create  NONclustered       
+--index NUQ_ID      
+--on TMessage(Id)  
+
+--查看
+--SELECT [name], [type],  is_unique, is_primary_key, is_unique_constraint
+--FROM sys.indexes 
+--WHERE [NAME]='NUQ_ID'
+
+--添加外键
+--ALTER TABLE TMessage
+--ADD
+--CONSTRAINT fk_UID
+--FOREIGN KEY (FromUser) 
+--REFERENCES TUser(ID)
+
+--没有索引
+--SELECT [name], [type],  is_unique, is_primary_key, is_unique_constraint
+--FROM sys.indexes 
+--WHERE [NAME]='fk_UID'
