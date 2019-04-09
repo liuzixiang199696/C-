@@ -1,0 +1,77 @@
+指定数据库
+USE DATABASE_NAME
+创建数据库
+CREATE DATABASE  [NAME]
+创建表
+CREATE TABLE [NAME] ()
+插入数据
+INSERT TABLE_NAME(列名)VALUES(数据)
+增加列
+ALTER TABLE TABLE_NAME ADD column_name（属性）
+删除列
+ALTER TABLE TABLE_NAME DROP column_name
+修改列类型
+ALTER TABLE TABLE_NAME 
+ALTER COLUMN column_name（属性）
+添加主键
+PRIMARY KEY CLUSTERED ([Name])
+添加外键
+CONSTRAINT fk_constraint_name 
+FOREIGN KEY (fk_field_name) 
+REFERENCES referenced_table_name(referenced_field_name)
+删除行
+DELETE table_name[WHERE condition]
+删除整张表内容
+TRUNCATE TABLE table_name
+删除表
+DROP TABLE table_name
+删除数据库
+DROP DATABASE db_name
+数据库备份/恢复
+BACKUP DATABASE db_name TO DISK = 'path and file_name'
+RESTORE DATABASE db_name FROM DISK = 'path and file_name'
+更新/复制
+UPDATE table_name SET column_name=value|column_name [WHERE condition]
+SELECT执行顺序
+FROM
+WHERE
+GROUP BY
+HAVING
+SELECT
+ORDER BY
+聚合函数OVER
+SELECT aggregate_fuction OVER([PARTITION BY column] ) column,[...] 
+FROM table_name
+CASE 表达式
+CASE input_expression   
+     WHEN when_expression THEN result_expression [ ...n ]   
+     [ ELSE else_result_expression ]   
+END
+删除索引
+  DROP INDEX  
+创建全文索引
+CREATE FULLTEXT CATALOG catalog_name
+删除全文索引
+DROP FULLTEXT CATALOG catalog_name
+-- 创建唯一聚集索引
+create unique clustered        --表示创建唯一聚集索引
+index UQ_Clu_StuNo        --索引名称
+on Student(S_StuNo)        --数据表名称（建立索引的列名）
+-- 创建唯一非聚集索引
+create unique nonclustered        --表示创建唯一非聚集索引
+index UQ_NonClu_StuNo        --索引名称
+on Student(S_StuNo)        --数据表名称（建立索引的列名）
+--创建聚集索引
+create clustered index Clu_Index
+on Student(S_StuNo)
+with (drop_existing=on)    
+
+--创建非聚集索引
+create nonclustered index NonClu_Index
+on Student(S_StuNo)
+with (drop_existing=on)    
+
+--创建唯一索引
+create unique index NonClu_Index
+on Student(S_StuNo)
+with (drop_existing=on)    
